@@ -99,7 +99,7 @@ function getForm(field) {
   }
   var el = document.querySelector(field);
   if (el) {
-    return el.value
+    return 'value' in el ? el.value : el.innerText;
   }
   return "";
 }
