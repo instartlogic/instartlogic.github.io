@@ -111,7 +111,7 @@ function getDom(field) {
   var els = document.querySelectorAll(field);
   let result = [];
   for (let el of els) {
-    result.push(`<${el.tagName} ${el.id ? 'id=' + el.id : ''} ${el.classList ? 'id=' + el.classList : ''}></${el.tagName}>`);
+    result.push(`<${el.tagName} ${el.id ? 'id=' + el.id : ''} ${el.name ? 'name=' + el.name : ''} ${el.classList ? 'id=' + el.classList : ''}></${el.tagName}>`);
   }
   return result;
 }
