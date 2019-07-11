@@ -31,7 +31,6 @@ const attacks = {
 
 window.addEventListener('message', function (evt) {
   if (evt.data.attack) {
-    debugger;
     let date = new Date();
     date = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
     switch (evt.data.attack) {
