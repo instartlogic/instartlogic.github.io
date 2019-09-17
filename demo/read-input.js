@@ -1,10 +1,10 @@
 window.__i10c = {};
 
-window.__i10c.readInput =  (inputEle) => {
+window.__i10c.getInput = (inputEle) => {
     return inputEle.val;
 }
 
-window.__i10c.setInput =  (inputEle, val) => {
+window.__i10c.setInput = (inputEle, val) => {
     inputEle.value = val;
 }
 
