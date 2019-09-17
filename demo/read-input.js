@@ -1,4 +1,3 @@
-element  = 
 window.__i10c = {
 
     getInputValue: function(inputEle) {
