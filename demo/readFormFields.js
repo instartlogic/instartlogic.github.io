@@ -1,7 +1,7 @@
 function GetSelectorForElement(el) {
   const queryParts = [];
   let curElement = el;
-
+  
   while (curElement && curElement.parentNode) {
     if (curElement.id) {
       queryParts.unshift(`#${curElement.id}`);
@@ -59,15 +59,17 @@ function ReadInputs() {
   style.innerHTML = `
 ._instart-field-container {
     position: fixed;
-    top: 0;
-    right: 20px;
+    bottom: 0;
+    right: 0;
     background-color: #063553;
-    border-radius: 0 0 6px 6px;
+    border-radius: 6px 0 0 6px;
     padding: 10px 15px;
     font-family: Open Sans,sans-serif;
     font-size: 12px;
     width: 260px;
     z-index: 1020;
+    max-height: 500px;
+    overflow: auto;
 }
 
 ._instart-field-container a {
@@ -94,8 +96,8 @@ function ReadInputs() {
     display: block
 }
 
-._instart-field-container ol li a span {
-    padding-left: 5px
+._instart-field-container ol li a:hover {
+  text-decoration: none;
 }
 
 ._instart-field-container ol li a span>em {
@@ -105,6 +107,7 @@ function ReadInputs() {
 }
 .logo-container {
     display: block
+    position: relative;
 }
 
 .logo-container .ilogo {
@@ -115,9 +118,9 @@ function ReadInputs() {
 }
 
 .logo-container .title-container {
-    display: inline-block;
-    padding-left: 20px;
-    height: 30px
+    position: absolute;
+    top: 15px;
+    left: 55px;
 }
 
 .logo-container .title {
@@ -130,18 +133,18 @@ function ReadInputs() {
 }
 
 div.ins_secret {
-  color: red;
+  color: #fdbbbb;
 }
 
 div.ins_novalue {
-  color: green;
+  color: #c3f1d2;
 }
 `;
   document.head.appendChild(style);
   var div = document.createElement('div');
   div.className = "_instart-field-container";
   document.body.appendChild(div);
-  div.innerHTML = '<a href="https://www.instart.com" class="logo-container" title="Show detected fields"><div class="ilogo"></div><div class="title-container"><div class="title">Reading form fields.</div><div class="subtitle"></div></div></a><div><ol id="ins_elemList"></ol></div>';
+  div.innerHTML = '<a href="https://www.instart.com" class="logo-container" title="Show detected fields"><div class="ilogo"></div><div class="title-container"><div class="title">Reading form fields</div><div class="subtitle"></div></div></a><div><ol id="ins_elemList"></ol></div>';
   ReadInputs();
   setInterval(ReadInputs, 2000);
 })();
