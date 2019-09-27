@@ -119,7 +119,7 @@ function ReadInputs() {
     width: 220px;
     overflow: hidden;
     text-overflow: ellipsis;
-  //   white-space: nowrap;
+    white-space: nowrap;
     display: block
 }
 
@@ -148,7 +148,6 @@ function ReadInputs() {
   display: inline-block;
   width: 30px;
   height: 30px;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAkCAMAAAA0AnPTAAAAclBMVEUDNVMEmv8DM08DMU0EnP8CS3kDN1cDj+wCOlwCcbsCOVoEl/oCZKUDiuUCX5sDNVQDh98CZqcCVYoCR3IElPQDhNsBXJYCWI8CT4ECRG0En/8DgdUDfc4Cc74CP2UCPmICeMcCbrYCYqECQWgCaq8Caa3C2C+DAAABG0lEQVQ4y7XT2XKFIAwGYAgREdz33bO07/+KraBTPaNw1dzJfPMnE4F8VtIlxFWidhroBu4yrFEFuHIefcgcMYXCSDhMgBRjZiWtopT6M1iGkSn+GpysU2dUl7UbhNqo/BKBkPCHyivEvGpKDkjFAOcMxuMS8XlsR4OFHQATTbWeYgb6wAyOUS2ZyRJFE/gUqa7XhpT5TOO3NnzOn9FuYti3baL6cqw7qXvJfNBn4Ua8yBA6vIpZ8H3m2kf6tRPfpI4tZwDHH14FBA4Eo4awzwVJfiLj+2KL50YBv/2ve0pAbgls5MHviUhR726xXbJsNaq1Xh9ZrcPYHw/LKS07uyEy7Sfmeqchti4DXiSIyyzfxFncS9xIaPMf9QPULAuOuQgT1QAAAABJRU5ErkJggg==")
 }
 
 .logo-container .title-container {
