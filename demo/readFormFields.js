@@ -30,13 +30,9 @@ function ReadCookies() {
   var cookies = document.cookie;
   var coolist = cookies.split(' ');
   if (document.getElementById('ins_cookies').innerHTML !== '') {
-      console.log('should remove it');
       document.getElementById('ins_cookies').innerHTML = ''
 
   } else {
-      coolist.push('testing=true');
-      coolist.push('test2=alalfl');
-      console.log(coolist);
       for (const cookie of coolist) {
           console.log(cookie);
           var li = document.createElement('li');
