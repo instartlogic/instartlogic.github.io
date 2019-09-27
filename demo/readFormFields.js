@@ -34,7 +34,6 @@ function ReadCookies() {
 
   } else {
       for (const cookie of coolist) {
-          console.log(cookie);
           var li = document.createElement('li');
           var a = document.createElement('a');
           a.href = "javascript:void(0)";
