@@ -153,13 +153,16 @@ function ReadInputs() {
 
 .title-cookie {
     position: relative;
-    top: -25px;
-    left: 55px;
 }
 
 .logo-container .title {
     color: #22a5f7;
     font-size: 16px
+}
+
+.title {
+  color: #22a5f7;
+  font-size: 16px
 }
 
 .logo-container .subtitle {
@@ -178,8 +181,8 @@ div.ins_novalue {
   var div = document.createElement('div');
   div.className = "_instart-field-container";
   document.body.appendChild(div);
-  div.innerHTML = '<a href="https://www.instart.com" class="logo-container" title="Show detected fields"><div class="ilogo"></div><div class="title-container"><div class="title">Reading form fields</div><div class="subtitle"></div></div></a><div><ol id="ins_elemList"></ol></div>';
-  div.innerHTML += '<div><a class="logo-container" title="Show detected fields"><div><div class="ilogoEmpty"></div><div class="title-cookie" id="showCookie"><div class="title">Reading Cookies</div><div><div class="subtitle"></div></div></a></div><div style="word-wrap: break-word;"><ol id="ins_cookies"></ol></div>';
+  div.innerHTML = '<a href="https://www.instart.com" class="logo-container" title="Show detected fields"><div class="ilogo"></div><div class="title-container"><div class="title">Form and cookie control</div></div></a><div class="title">Reading form fields</div><div><ol id="ins_elemList"></ol></div>';
+  div.innerHTML += '<div><a class="logo-container" title="Show detected fields"><div><div class="ilogoEmpty"></div><div class="title-cookie" id="showCookie"><div class="title">Reading Cookies</div><div></div></a></div></div><div><ol id="ins_cookies"></ol></div>';
   document.getElementById('showCookie').onclick = function () {
       ReadCookies();
   }
