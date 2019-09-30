@@ -30,11 +30,10 @@ function ReadCookies() {
   var cookies = document.cookie;
   var coolist = cookies.split(' ');
   if (document.getElementById('ins_cookies').innerHTML !== '') {
-    document.getElementById('ins_cookies').innerHTML = ''
+    document.getElementById('ins_cookies').innerHTML = '';
   } else {
     for (const cookie of coolist) {
       let content = cookie.split('=');
-      let key = content[0];
       var li = document.createElement('li');
       var a = document.createElement('a');
       a.href = "javascript:void(0)";
