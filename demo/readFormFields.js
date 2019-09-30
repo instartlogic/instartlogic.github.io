@@ -1,7 +1,7 @@
 function GetSelectorForElement(el) {
   const queryParts = [];
   let curElement = el;
-  
+
   while (curElement && curElement.parentNode) {
     if (curElement.id) {
       queryParts.unshift(`#${curElement.id}`);
@@ -30,22 +30,26 @@ function ReadCookies() {
   var cookies = document.cookie;
   var coolist = cookies.split(' ');
   if (document.getElementById('ins_cookies').innerHTML !== '') {
-      document.getElementById('ins_cookies').innerHTML = ''
-
+    document.getElementById('ins_cookies').innerHTML = ''
   } else {
-      for (const cookie of coolist) {
-          var li = document.createElement('li');
-          var a = document.createElement('a');
-          a.href = "javascript:void(0)";
-          li.appendChild(a);
-          var textBox = document.createElement('div');
-          var value = cookie;
-          textBox.className = value ? "ins_secret" : "ins_novalue";
-          textBox.innerHTML = value || "NO VALUE";
-          a.appendChild(textBox);
-          document.getElementById("ins_cookies").appendChild(li);
-      }
-      document.getElementById('ins_cookies').appendChild(li);
+    for (const cookie of coolist) {
+      let content = cookie.split('=');
+      let key = content[0];
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = "javascript:void(0)";
+      li.appendChild(a);
+      var span = document.createElement('span');
+      span.innerHTML = content[0];
+      a.appendChild(span);
+      var textBox = document.createElement('div');
+      textBox.className = content[1] ? "ins_secret" : "ins_novalue";
+      textBox.innerHTML = content[1] || "NO VALUE";
+      textBox.title = content[1] || "NO VALUE";
+      a.appendChild(textBox);
+      document.getElementById("ins_cookies").appendChild(li);
+    }
+    document.getElementById('ins_cookies').appendChild(li);
   }
 }
 
@@ -160,9 +164,16 @@ function ReadInputs() {
     font-size: 16px
 }
 
-.title {
+.cookieTitle {
   color: #22a5f7;
-  font-size: 16px
+  font-size: 16px;
+  padding-top: 10px
+}
+
+.subtitle {
+  color: #22a5f7;
+  font-size: 16px;
+  padding-top: 15px;
 }
 
 .logo-container .subtitle {
@@ -171,6 +182,9 @@ function ReadInputs() {
 
 div.ins_secret {
   color: #fdbbbb;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 div.ins_novalue {
@@ -181,10 +195,10 @@ div.ins_novalue {
   var div = document.createElement('div');
   div.className = "_instart-field-container";
   document.body.appendChild(div);
-  div.innerHTML = '<a href="https://www.instart.com" class="logo-container" title="Show detected fields"><div class="ilogo"></div><div class="title-container"><div class="title">Form and cookie control</div></div></a><div class="title">Reading form fields</div><div><ol id="ins_elemList"></ol></div>';
-  div.innerHTML += '<div><a class="logo-container" title="Show detected fields"><div><div class="ilogoEmpty"></div><div class="title-cookie" id="showCookie"><div class="title">Reading Cookies</div><div></div></a></div></div><div><ol id="ins_cookies"></ol></div>';
+  div.innerHTML = '<a href="https://www.instart.com" class="logo-container" title="Show detected fields"><div class="ilogo"></div><div class="title-container"><div class="title">Form and cookie control</div></div></a><div class="subtitle">Reading form fields</div><div><ol id="ins_elemList"></ol></div>';
+  div.innerHTML += '<div><div><div class="title-cookie" id="showCookie"><div class="cookieTitle">Reading Cookies</div><div></div></div></div><div><ol id="ins_cookies"></ol></div>';
   document.getElementById('showCookie').onclick = function () {
-      ReadCookies();
+    ReadCookies();
   }
   ReadInputs();
   setInterval(ReadInputs, 2000);
