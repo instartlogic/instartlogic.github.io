@@ -1,0 +1,22 @@
+{
+  "name": "instartlogic.github.io",
+  "version": "1.0.0",
+  "description": "Index page for Instart Logic's public facing github. as well as demo scripts",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waynero/instartlogic.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waynero/instartlogic.github.io/issues"
+  },
+  "homepage": "https://github.com/waynero/instartlogic.github.io#readme",
+  "dependencies": {
+    "typescript": "^3.6.3"
+  }
+}
