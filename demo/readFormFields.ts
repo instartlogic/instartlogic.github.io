@@ -83,7 +83,7 @@ function ReadInputs() {
       a.appendChild(textBox);
       let oriBorder = element.style.border;
       a.onmouseenter = function() {highlightForm(element)};
-      a.onmouseleave = function() {recoverForm(element, oriBorder)}
+      a.onmouseleave = function() {recoverForm(element, oriBorder)};
       document.getElementById("ins_elemList").appendChild(li);
     }
   }
