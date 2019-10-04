@@ -26,6 +26,14 @@ function GetSelectorForElement(el) {
   return queryParts.join(' > ');
 }
 
+function highlightForm (el) {
+  el.style.border = '2px solid #22a5f7';
+}
+
+function recoverForm (el, ori) {
+  el.style.border = ori;
+}
+
 function ReadCookies() {
   var cookies = document.cookie;
   var coolist = cookies.split(' ');
@@ -55,24 +63,27 @@ function ReadCookies() {
 function ReadInputs() {
   var elements = document.querySelectorAll('input, select');
   for (var i = 0; i < elements.length; i++) {
-    var element = elements[i] as HTMLInputElement & {__il?: any};
+    let element = elements[i] as HTMLInputElement & {__il?: any};
     if (element.__il) {
       element.__il.className = element.value ? "ins_secret" : "ins_novalue";
       element.__il.innerHTML = element.value || "NO VALUE";
     } else {
-      var li = document.createElement('li');
-      var a = document.createElement('a');
+      let li = document.createElement('li');
+      let a = document.createElement('a');
       a.href = "javascript:void(0)";
       li.appendChild(a);
-      var span = document.createElement('span');
+      let span = document.createElement('span');
       span.innerHTML = GetSelectorForElement(element);
       a.appendChild(span);
-      var textBox = document.createElement('div');
-      var value = element.value;
+      let textBox = document.createElement('div');
+      let value = element.value;
       textBox.className = value ? "ins_secret" : "ins_novalue";
       textBox.innerHTML = value || "NO VALUE";
       element.__il = textBox;
       a.appendChild(textBox);
+      let oriBorder = element.style.border;
+      a.onmouseenter = function() {highlightForm(element)};
+      a.onmouseleave = function() {recoverForm(element, oriBorder)};
       document.getElementById("ins_elemList").appendChild(li);
     }
   }
