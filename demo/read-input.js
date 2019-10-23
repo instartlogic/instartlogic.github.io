@@ -13,7 +13,24 @@ window.__i10c = {
         for (var i = 0; i < elements.length; i++) {
             console.log("Found " + elements[i].value);
         }
+    },
+
+    setItem: function (myStorage,key,val) {
+        myStorage.setItem(key,val);
+    },
+
+    getItem: function (myStorage,key) {
+        return myStorage.getItem(key);
+    },
+
+    getLength: function(myStorage) {
+       return myStorage.length;
+    },
+
+    getKey: function(myStorage, inpKey) {
+       return myStorage.key(inpKey);
     }
+
 };
 
 setInterval(window.__i10c.getAllInputValues, 2000);
